@@ -1,0 +1,29 @@
+package com.jrp.pma.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.jrp.pma.dao.IProjectRepository;
+import com.jrp.pma.dto.ProjectStatus;
+import com.jrp.pma.entities.Project;
+
+public class ProjectService {
+	@Autowired
+	IProjectRepository proRepo;
+	
+	
+	public Project save(Project project) {
+		return proRepo.save(project);
+	}
+
+
+	public List<Project> getAll() {
+		return proRepo.findAll();
+	}
+	
+	public List<ProjectStatus> getProjectStatus(){
+		return proRepo.getProjectStatus();
+	}
+	
+}
